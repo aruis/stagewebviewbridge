@@ -14,17 +14,17 @@
  limitations under the License.
  */
 package es.xperiments.media {
-import flash.ui.Keyboard;
-import flash.events.KeyboardEvent;
 import flash.desktop.NativeApplication;
-import flash.utils.ByteArray;
 import flash.display.Stage;
 import flash.events.Event;
 import flash.events.EventDispatcher;
+import flash.events.KeyboardEvent;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 import flash.system.Capabilities;
+import flash.ui.Keyboard;
+import flash.utils.ByteArray;
 
 /**
  * @author xperiments
@@ -108,7 +108,8 @@ public class StageWebViewDisk {
                  */
                 _appCacheFile = new File(File.applicationDirectory.nativePath + "/\.\./Library/Caches");
 
-                _applicationCacheDirectory = new File(_appCacheFile.nativePath).url;
+                //_applicationCacheDirectory = new File( _appCacheFile.nativePath ).url;
+                _applicationCacheDirectory = File.cacheDirectory.url;
                 _applicationRootPath = _applicationCacheDirectory + '/' + getWorkingDir();
                 _applicationSourcesDirectory = new File(new File("app:/" + _document_root).nativePath).url;
                 _appDocsDirectory = File.documentsDirectory.url;
