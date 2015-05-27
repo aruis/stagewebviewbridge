@@ -257,7 +257,11 @@ public class StageWebViewDisk {
         switch (true) {
             case url.indexOf(PROTOCOL_APP_LINK) != -1:
                 fileName = url.split(PROTOCOL_APP_LINK)[1];
-                return _appCacheFile.resolvePath(getWorkingDir() + '/' + fileName).nativePath;
+                if (isIPHONE) {
+                    return File.applicationDirectory.resolvePath(getWorkingDir() + '/' + fileName).nativePath;
+                } else {
+                    return _appCacheFile.resolvePath(getWorkingDir() + '/' + fileName).nativePath;
+                }
                 break;
             case url.indexOf(PROTOCOL_DOC_LINK) != -1:
                 fileName = url.split(PROTOCOL_DOC_LINK)[1];
@@ -365,7 +369,10 @@ public class StageWebViewDisk {
                         break;
                     case isANDROID:
                         // copy the files to the destination path, as we need a copy to reference the file
-                        fileList[e].copyTo(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name), true);
+                        trace(fileList[e].name)
+                        trace(fileList[e].nativePath)
+                        trace(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name).nativePath)
+                        //fileList[e].copyTo(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name), true);
                         break;
                     case isIPHONE:
                         // Do nothing as this files are "resources" and we can reference it from its original path
