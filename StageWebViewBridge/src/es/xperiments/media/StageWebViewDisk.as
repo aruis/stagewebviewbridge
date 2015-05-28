@@ -325,6 +325,8 @@ public class StageWebViewDisk {
                 return _debugMode ? _document_source : _document_root;
                 break;
             case isIPHONE:
+                return _document_root;
+                break;
             case isANDROID:
                 return _document_source;
                 break;
@@ -369,9 +371,9 @@ public class StageWebViewDisk {
                         break;
                     case isANDROID:
                         // copy the files to the destination path, as we need a copy to reference the file
-                        trace(fileList[e].name)
-                        trace(fileList[e].nativePath)
-                        trace(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name).nativePath)
+                        trace(fileList[e].name);
+                        trace(fileList[e].nativePath);
+                        trace(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name).nativePath);
                         //fileList[e].copyTo(_appCacheFile.resolvePath(_document_source + '/' + fileList[e].name), true);
                         break;
                     case isIPHONE:
