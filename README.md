@@ -7,4 +7,4 @@ Automatically exported from code.google.com/p/stagewebviewbridge
 1. 修复ios设备下，看不到网页页面的bug
 2. 修复ios设备下，本地网页文件（applink:/)无效的bug
 3. 优化ios设备下，本地文件放在www文件夹下，与android一致
-4. 使用gradlefx插件作为构建器
+4. 使用gradlefx插件作为构建器,基于gradle
